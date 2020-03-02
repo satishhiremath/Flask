@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+<title>Posts</title>
+{% endblock %}
+
+{% block body %}
+<h1>All posts</h1>
+    {% for post in posts %}    {# 'posts' is variable which is passed from code #}
+
+        <h2>{{ post.title }}</h2>   {# Accessing each dict in a posts list #}
+
+        {% if post.author %}   {# Handling if conditions in Jinja #}
+            <h3>By: {{ post.author }}</h3>  {# Checks if author is present #}
+        {% else %}
+            <h3>By: No author</h3>
+        {% endif %}
+
+        <p>{{ post.content }}</p>
+
+    {% endfor %}  {# End of for loop #}
+{% endblock %}
